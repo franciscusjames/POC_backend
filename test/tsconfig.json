@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2015",
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "strictNullChecks": true,
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "lib": [
+      "es2015",
+      "es7",
+      "es2016.array.include"
+    ]
+  },
+  "include": [
+    "./**/*"
+  ]
+}

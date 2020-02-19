@@ -1,0 +1,18 @@
+# package directories
+node_modules
+jspm_packages
+package-*
+yarn.lock
+
+# Serverless directories
+.serverless
+
+*.map
+
+# build output (files.js)
+build
+.build
+
+# nyc
+.nyc*
+coverage/
