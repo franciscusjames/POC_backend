@@ -13,7 +13,7 @@ class Service {
 
     public getViewAutor = async () => await this.clientDb.getViewAutor();
 
-    public getViewDepartamentoo = async () => await this.clientDb.getViewDepartamentoo();
+    public getViewDepartamento = async () => await this.clientDb.getViewDepartamento();
 
     public getViewEnviados = async () => await this.clientDb.getViewEnviados();
 

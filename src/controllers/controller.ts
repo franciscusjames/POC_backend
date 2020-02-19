@@ -17,9 +17,9 @@ export const getViewAutor = async (req: Request, res: Response) => {
     res.status(200).json(response);
 }
 
-export const getViewDepartamentoo = async (req: Request, res: Response) => {
+export const getViewDepartamento = async (req: Request, res: Response) => {
     const service = new Service(new ClientDb());
-    const response = await service.getViewDepartamentoo();
+    const response = await service.getViewDepartamento();
     console.log(response);
     res.status(200).json(response);
 }

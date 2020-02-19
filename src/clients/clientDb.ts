@@ -19,7 +19,7 @@ class ClientDb {
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
 
-    public getViewDepartamentoo = async () => {
+    public getViewDepartamento = async () => {
         return await this.conn.select('*')
             .from('viewDepartamento')
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });

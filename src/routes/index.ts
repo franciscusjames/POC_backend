@@ -9,7 +9,7 @@ router.options('*', cors());
 
 router.get('/viewAnexos', controller.getViewAnexos);
 router.get('/viewAutor', controller.getViewAutor);
-router.get('/viewDepartamento', controller.getViewDepartamentoo);
+router.get('/viewDepartamento', controller.getViewDepartamento);
 router.get('/viewEnviados', controller.getViewEnviados);
 router.get('/viewFinalizados', controller.getViewFinalizados);
 router.get('/viewIncidente', controller.getViewIncidente);
