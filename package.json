@@ -8,8 +8,7 @@
     "start": "serverless offline",
     "test": "nyc mocha",
     "predeploy": "rm -rf build/",
-    "deploy": "sls deploy -v",
-    "prepush": "yarn test && yarn lint"
+    "deploy": "sls deploy -v"
   },
   "nyc": {
     "function": "70",
