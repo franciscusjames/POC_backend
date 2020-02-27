@@ -9,26 +9,27 @@ class Service {
     }
 
 
-    public getViewAnexos = async () => await this.clientDb.getViewAnexos();
+    public getEmailsFiltrados = async () => await this.clientDb.getEmailsFiltrados();
 
-    public getViewAutor = async () => await this.clientDb.getViewAutor();
+    public getEmailsFinalizados = async () => await this.clientDb.getEmailsFinalizados();
 
-    public getViewDepartamento = async () => await this.clientDb.getViewDepartamento();
+    public getEmailsNaoFinalizados = async () => await this.clientDb.getEmailsNaoFinalizados();
 
-    public getViewEnviados = async () => await this.clientDb.getViewEnviados();
+    public postHistoricoEmail = async (data) => await this.clientDb.postHistoricoEmail(data);
 
-    public getViewFinalizados = async () => await this.clientDb.getViewFinalizados();
+    public getEmailsNaoLidos1dia = async () => await this.clientDb.getEmailsNaoLidos1dia();
 
-    public getViewIncidente = async () => await this.clientDb.getViewIncidente();
+    public getEmailsNaoLidos2dias = async () => await this.clientDb.getEmailsNaoLidos2dias();
 
-    public getViewNaoFinalizados = async () => await this.clientDb.getViewNaoFinalizados();
+    public getEmailsNaoLidos3dias = async () => await this.clientDb.getEmailsNaoLidos3dias();
 
-    public getViewNaoLidos = async () => await this.clientDb.getViewNaoLidos();
+    public getEmailsNaoLidos5dias = async () => await this.clientDb.getEmailsNaoLidos5dias();
 
-    public getViewPrioridade = async () => await this.clientDb.getViewPrioridade();
+    public getEmailsNaoLidos7dias = async () => await this.clientDb.getEmailsNaoLidos7dias();
 
-    public getViewRecebidos = async () => await this.clientDb.getViewRecebidos();
+    public getEmailsNaoLidos15dias = async () => await this.clientDb.getEmailsNaoLidos15dias();
 
+    public putFinalizarEmail = async (data) => await this.clientDb.putFinalizarEmail(data);
 }
 
 export default Service;

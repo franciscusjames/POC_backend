@@ -3,72 +3,79 @@ import Service from '../services/service';
 import { ClientDb } from '../clients/clientDb';
 
 
-export const getViewAnexos = async (req: Request, res: Response) => {
+export const getEmailsFiltrados = async (req: Request, res: Response) => {
     const service = new Service(new ClientDb());
-    const response = await service.getViewAnexos();
+    const response = await service.getEmailsFiltrados();
     console.log(response);
     res.status(200).json(response);
 }
 
-export const getViewAutor = async (req: Request, res: Response) => {
+export const getEmailsFinalizados = async (req: Request, res: Response) => {
     const service = new Service(new ClientDb());
-    const response = await service.getViewAutor();
+    const response = await service.getEmailsFinalizados();
     console.log(response);
     res.status(200).json(response);
 }
 
-export const getViewDepartamento = async (req: Request, res: Response) => {
+export const getEmailsNaoFinalizados = async (req: Request, res: Response) => {
     const service = new Service(new ClientDb());
-    const response = await service.getViewDepartamento();
+    const response = await service.getEmailsNaoFinalizados();
     console.log(response);
     res.status(200).json(response);
 }
 
-export const getViewEnviados = async (req: Request, res: Response) => {
+export const postHistoricoEmail = async (req: Request, res: Response) => {
     const service = new Service(new ClientDb());
-    const response = await service.getViewEnviados();
+    const response = await service.postHistoricoEmail(req.body);
+    console.log(response);
+    res.status(201).json(response);
+}
+
+export const getEmailsNaoLidos1dia = async (req: Request, res: Response) => {
+    const service = new Service(new ClientDb());
+    const response = await service.getEmailsNaoLidos1dia();
     console.log(response);
     res.status(200).json(response);
 }
 
-export const getViewFinalizados = async (req: Request, res: Response) => {
+export const getEmailsNaoLidos2dias = async (req: Request, res: Response) => {
     const service = new Service(new ClientDb());
-    const response = await service.getViewFinalizados();
+    const response = await service.getEmailsNaoLidos2dias();
     console.log(response);
     res.status(200).json(response);
 }
 
-export const getViewIncidente = async (req: Request, res: Response) => {
+export const getEmailsNaoLidos3dias = async (req: Request, res: Response) => {
     const service = new Service(new ClientDb());
-    const response = await service.getViewIncidente();
+    const response = await service.getEmailsNaoLidos3dias();
     console.log(response);
     res.status(200).json(response);
 }
 
-export const getViewNaoFinalizados = async (req: Request, res: Response) => {
+export const getEmailsNaoLidos5dias = async (req: Request, res: Response) => {
     const service = new Service(new ClientDb());
-    const response = await service.getViewNaoFinalizados();
+    const response = await service.getEmailsNaoLidos5dias();
     console.log(response);
     res.status(200).json(response);
 }
 
-export const getViewNaoLidos = async (req: Request, res: Response) => {
+export const getEmailsNaoLidos7dias = async (req: Request, res: Response) => {
     const service = new Service(new ClientDb());
-    const response = await service.getViewNaoLidos();
+    const response = await service.getEmailsNaoLidos7dias();
     console.log(response);
     res.status(200).json(response);
 }
 
-export const getViewPrioridade = async (req: Request, res: Response) => {
+export const getEmailsNaoLidos15dias = async (req: Request, res: Response) => {
     const service = new Service(new ClientDb());
-    const response = await service.getViewPrioridade();
+    const response = await service.getEmailsNaoLidos15dias();
     console.log(response);
     res.status(200).json(response);
 }
 
-export const getViewRecebidos = async (req: Request, res: Response) => {
+export const putFinalizarEmail = async (req: Request, res: Response) => {
     const service = new Service(new ClientDb());
-    const response = await service.getViewRecebidos();
+    const response = await service.putFinalizarEmail(req.body);
     console.log(response);
-    res.status(200).json(response);
+    res.status(201).json(response);
 }

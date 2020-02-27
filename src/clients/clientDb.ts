@@ -7,66 +7,78 @@ class ClientDb {
     public constructor() { }
 
 
-    public getViewAnexos = async () => {
+    public getEmailsFiltrados = async () => {
         return await this.conn.select('*')
-            .from('viewAnexos')
+            .from('emailsFiltrados')
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
 
-    public getViewAutor = async () => {
+    public getEmailsFinalizados = async () => {
         return await this.conn.select('*')
-            .from('viewAutor')
+            .from('emailsFinalizados')
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
 
-    public getViewDepartamento = async () => {
+    public getEmailsNaoFinalizados = async () => {
         return await this.conn.select('*')
-            .from('viewDepartamento')
+            .from('emailsNaoFinalizados')
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
 
-    public getViewEnviados = async () => {
+    public postHistoricoEmail = async (data: any) => {
+        const param = data.param;
+        console.log('param: ', param)
         return await this.conn.select('*')
-            .from('viewEnviados')
+            .from('emails')
+            .whereRaw(`assunto like '%${param}%'`)
+            .orderBy('dataChegadaOuEnvio')
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
 
-    public getViewFinalizados = async () => {
+    public getEmailsNaoLidos1dia = async () => {
         return await this.conn.select('*')
-            .from('viewFinalizados')
+            .from('emailsNaoLidos1dia')
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
 
-    public getViewIncidente = async () => {
+    public getEmailsNaoLidos2dias = async () => {
         return await this.conn.select('*')
-            .from('viewIncidente')
+            .from('emailsNaoLidos2dias')
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
 
-    public getViewNaoFinalizados = async () => {
+    public getEmailsNaoLidos3dias = async () => {
         return await this.conn.select('*')
-            .from('viewNaoFinalizados')
+            .from('emailsNaoLidos3dias')
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
 
-    public getViewNaoLidos = async () => {
+    public getEmailsNaoLidos5dias = async () => {
         return await this.conn.select('*')
-            .from('viewNaoLidos')
+            .from('emailsNaoLidos5dias')
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
 
-    public getViewPrioridade = async () => {
+    public getEmailsNaoLidos7dias = async () => {
         return await this.conn.select('*')
-            .from('viewPrioridade')
+            .from('emailsNaoLidos7dias')
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
 
-    public getViewRecebidos = async () => {
+    public getEmailsNaoLidos15dias = async () => {
         return await this.conn.select('*')
-            .from('viewRecebidos')
+            .from('emailsNaoLidos15dias')
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
 
+    public putFinalizarEmail = async (data: any) => {
+        const param = data.id;
+        console.log('param: ', param)
+        return await this.conn('emails')
+            .update({ finalizado: 'Sim' })
+            .where('id', '=', param)
+            .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
+    }
 }
 
 export { ClientDb }
