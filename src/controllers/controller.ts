@@ -79,3 +79,10 @@ export const putFinalizarEmail = async (req: Request, res: Response) => {
     console.log(response);
     res.status(201).json(response);
 }
+
+export const getEmailsNaoLidosCount = async (req: Request, res: Response) => {
+    const service = new Service(new ClientDb());
+    const response = await service.getEmailsNaoLidosCount();
+    console.log(response);
+    res.status(200).json(response);
+}

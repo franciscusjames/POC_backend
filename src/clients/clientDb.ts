@@ -79,6 +79,13 @@ class ClientDb {
             .where('id', '=', param)
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
+
+    public getEmailsNaoLidosCount = async () => {
+        return await this.conn.select('*')
+            .from('emailsNaoLidosCount')
+            .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
+    }
+
 }
 
 export { ClientDb }

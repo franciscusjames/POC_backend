@@ -30,6 +30,8 @@ class Service {
     public getEmailsNaoLidos10dias = async () => await this.clientDb.getEmailsNaoLidos10dias();
 
     public putFinalizarEmail = async (data) => await this.clientDb.putFinalizarEmail(data);
+
+    public getEmailsNaoLidosCount = async () => await this.clientDb.getEmailsNaoLidosCount();
 }
 
 export default Service;
