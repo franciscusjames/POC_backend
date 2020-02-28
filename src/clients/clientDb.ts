@@ -65,9 +65,9 @@ class ClientDb {
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
 
-    public getEmailsNaoLidos15dias = async () => {
+    public getEmailsNaoLidos10dias = async () => {
         return await this.conn.select('*')
-            .from('emailsNaoLidos15dias')
+            .from('emailsNaoLidos10dias')
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
 

@@ -66,9 +66,9 @@ export const getEmailsNaoLidos7dias = async (req: Request, res: Response) => {
     res.status(200).json(response);
 }
 
-export const getEmailsNaoLidos15dias = async (req: Request, res: Response) => {
+export const getEmailsNaoLidos10dias = async (req: Request, res: Response) => {
     const service = new Service(new ClientDb());
-    const response = await service.getEmailsNaoLidos15dias();
+    const response = await service.getEmailsNaoLidos10dias();
     console.log(response);
     res.status(200).json(response);
 }

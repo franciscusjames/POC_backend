@@ -16,7 +16,7 @@ router.get('/emailsNaoLidos2dias', controller.getEmailsNaoLidos2dias);
 router.get('/emailsNaoLidos3dias', controller.getEmailsNaoLidos3dias);
 router.get('/emailsNaoLidos5dias', controller.getEmailsNaoLidos5dias);
 router.get('/emailsNaoLidos7dias', controller.getEmailsNaoLidos7dias);
-router.get('/emailsNaoLidos15dias', controller.getEmailsNaoLidos15dias);
+router.get('/emailsNaoLidos10dias', controller.getEmailsNaoLidos10dias);
 router.put('/finalizarEmail', controller.putFinalizarEmail);
 
 export default router;

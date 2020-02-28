@@ -27,7 +27,7 @@ class Service {
 
     public getEmailsNaoLidos7dias = async () => await this.clientDb.getEmailsNaoLidos7dias();
 
-    public getEmailsNaoLidos15dias = async () => await this.clientDb.getEmailsNaoLidos15dias();
+    public getEmailsNaoLidos10dias = async () => await this.clientDb.getEmailsNaoLidos10dias();
 
     public putFinalizarEmail = async (data) => await this.clientDb.putFinalizarEmail(data);
 }
