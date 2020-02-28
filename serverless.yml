@@ -1,75 +1,20 @@
 
-service: poc-backend-emaildashboard
-
-provider:
-  name: aws
-  runtime: nodejs12.x
-
-  stage: dev
-  region: us-east-2
-
-functions:
-  handler:
-    handler: build/index.handler
-
-    events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
-
-    environment:
-      DBHOST: poc-database.ckuyozcu3sos.us-east-1.rds.amazonaws.com
-      DBUSER: admin
-      DBPORT: 3306 
-      DBPASSWORD: 'password01'
-      DBNAME: poc_example
-
-plugins:
-    - customOffline
-    - serverless-offline
-
-package:
-  include:
-    - .env
-
-  exclude:
-    - node_modules/**/*
-    - test/
-
-custom:
-  serverless-offline:
-    port: 3003
-
-
-################################## Production Settings ############################################
-# service: poc-backend-emaildashboard # NOTE: update this with your service name
+# service: backend-emaildashboard
 
 # provider:
 #   name: aws
 #   runtime: nodejs12.x
 
-#   stage: ${opt:stage, 'dev'}
-#   region: us-east-1
-  
-#   tracing: true # enable tracing
-#   iamRoleStatements:
-#     - Effect: "Allow" # xray permissions (required)
-#       Action:
-#         - "xray:PutTraceSegments"
-#         - "xray:PutTelemetryRecords"
-#       Resource:
-#         - "*"
-#   deploymentBucket:
-#     name: poc-backend-emaildashboard-bucket
+#   stage: dev
+#   region: us-east-2
 
 # functions:
 #   handler:
 #     handler: build/index.handler
-#     name: ${self:service}-handler-${self:provider.stage}
+
 #     events:
 #       - http: ANY /
-#         cors: true
 #       - http: 'ANY {proxy+}'
-#         cors: true
 
 #     environment:
 #       DBHOST: poc-database.ckuyozcu3sos.us-east-1.rds.amazonaws.com
@@ -79,19 +24,74 @@ custom:
 #       DBNAME: poc_example
 
 # plugins:
-#   - customDeployTypeScript
-#   - serverless-plugin-tracing
-#   # - serverless-domain-manager
+#     - customOffline
+#     - serverless-offline
 
 # package:
 #   include:
 #     - .env
 
 #   exclude:
-#     - src/**/*
-#     - test/**
-#     - .build/**
-#     - Gulpfile.js
-#     - package*
-#     - README.MD
-#     - tsconfig.json
+#     - node_modules/**/*
+#     - test/
+
+# custom:
+#   serverless-offline:
+#     port: 3003
+
+
+################################## Production Settings ############################################
+service: backend-emaildashboard # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+  stage: ${opt:stage, 'dev'}
+  region: us-east-1
+  
+  tracing: true # enable tracing
+  iamRoleStatements:
+    - Effect: "Allow" # xray permissions (required)
+      Action:
+        - "xray:PutTraceSegments"
+        - "xray:PutTelemetryRecords"
+      Resource:
+        - "*"
+  deploymentBucket:
+    name: backend-emaildashboard-bucket
+
+functions:
+  handler:
+    handler: build/index.handler
+    name: ${self:service}-handler-${self:provider.stage}
+    events:
+      - http: ANY /
+        cors: true
+      - http: 'ANY {proxy+}'
+        cors: true
+
+    environment:
+      DBHOST: poc-database.ckuyozcu3sos.us-east-1.rds.amazonaws.com
+      DBUSER: admin
+      DBPORT: 3306 
+      DBPASSWORD: 'password01'
+      DBNAME: poc_example
+
+plugins:
+  - customDeployTypeScript
+  - serverless-plugin-tracing
+  # - serverless-domain-manager
+
+package:
+  include:
+    - .env
+
+  exclude:
+    - src/**/*
+    - test/**
+    - .build/**
+    - Gulpfile.js
+    - package*
+    - README.MD
+    - tsconfig.json
