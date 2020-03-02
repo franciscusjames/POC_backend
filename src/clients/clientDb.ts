@@ -72,11 +72,12 @@ class ClientDb {
     }
 
     public putFinalizarEmail = async (data: any) => {
-        const param = data.id;
+        const param = data.param.replace('RE: ', '').replace('RES: ', '').replace('ENC: ', '');
+        console.log('param: ', param)
         console.log('param: ', param)
         return await this.conn('emails')
             .update({ finalizado: 'Sim' })
-            .where('id', '=', param)
+            .whereRaw(`assunto like '%${param}%'`)
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
 
