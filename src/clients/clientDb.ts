@@ -26,7 +26,7 @@ class ClientDb {
     }
 
     public postHistoricoEmail = async (data: any) => {
-        const param = data.param;
+        const param = data.param.replace('RE: ', '').replace('RES: ', '').replace('ENC: ', '');
         console.log('param: ', param)
         return await this.conn.select('*')
             .from('emails')
