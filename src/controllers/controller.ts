@@ -86,3 +86,10 @@ export const getEmailsNaoLidosCount = async (req: Request, res: Response) => {
     console.log(response);
     res.status(200).json(response);
 }
+
+export const putSetEmailLido = async (req: Request, res: Response) => {
+    const service = new Service(new ClientDb());
+    const response = await service.putSetEmailLido(req.body);
+    console.log(response);
+    res.status(201).json(response);
+}

@@ -74,7 +74,6 @@ class ClientDb {
     public putFinalizarEmail = async (data: any) => {
         const param = data.param.replace('RE: ', '').replace('RES: ', '').replace('ENC: ', '');
         console.log('param: ', param)
-        console.log('param: ', param)
         return await this.conn('emails')
             .update({ finalizado: 'Sim' })
             .whereRaw(`assunto like '%${param}%'`)
@@ -84,6 +83,15 @@ class ClientDb {
     public getEmailsNaoLidosCount = async () => {
         return await this.conn.select('*')
             .from('emailsNaoLidosCount')
+            .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
+    }
+
+    public putSetEmailLido = async (data: any) => {
+        const id = data.id;
+        console.log('id: ', id)
+        return await this.conn('emails')
+            .update({ foiLido: 1 })
+            .whereRaw(`id = ${id}`)
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
 

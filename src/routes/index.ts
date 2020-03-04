@@ -19,5 +19,6 @@ router.get('/emailsNaoLidos7dias', controller.getEmailsNaoLidos7dias);
 router.get('/emailsNaoLidos10dias', controller.getEmailsNaoLidos10dias);
 router.put('/finalizarEmail', controller.putFinalizarEmail);
 router.get('/emailsNaoLidosCount', controller.getEmailsNaoLidosCount);
+router.put('/setEmailLido', controller.putSetEmailLido);
 
 export default router;
