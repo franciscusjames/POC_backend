@@ -87,11 +87,11 @@ class ClientDb {
     }
 
     public putSetEmailLido = async (data: any) => {
-        const id = data.id;
-        console.log('id: ', id)
+        const param = data.param.replace('RE: ', '').replace('RES: ', '').replace('ENC: ', '');
+        console.log('param: ', param)
         return await this.conn('emails')
             .update({ foiLido: 1 })
-            .whereRaw(`id = ${id}`)
+            .whereRaw(`assunto like '%${param}%'`)
             .catch((err) => { throw new Error('Falha ao acessar banco de dados.'); });
     }
 
