@@ -26,7 +26,7 @@ class ClientDb {
     }
 
     public postHistoricoEmail = async (data: any) => {
-        const param = data.param.replace('RE: ', '').replace('RES: ', '').replace('ENC: ', '');
+        const param = data.param.replace('Re: ', '').replace('RE: ', '').replace('RES: ', '').replace('ENC: ', '');
         console.log('param: ', param)
         return await this.conn.select('*')
             .from('emails')
@@ -72,7 +72,7 @@ class ClientDb {
     }
 
     public putFinalizarEmail = async (data: any) => {
-        const param = data.param.replace('RE: ', '').replace('RES: ', '').replace('ENC: ', '');
+        const param = data.param.replace('Re: ', '').replace('RE: ', '').replace('RES: ', '').replace('ENC: ', '');
         console.log('param: ', param)
         return await this.conn('emails')
             .update({ finalizado: 'Sim' })
@@ -87,7 +87,7 @@ class ClientDb {
     }
 
     public putSetEmailLido = async (data: any) => {
-        const param = data.param.replace('RE: ', '').replace('RES: ', '').replace('ENC: ', '');
+        const param = data.param.replace('Re: ', '').replace('RE: ', '').replace('RES: ', '').replace('ENC: ', '');
         console.log('param: ', param)
         return await this.conn('emails')
             .update({ foiLido: 1 })
