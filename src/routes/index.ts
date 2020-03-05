@@ -5,7 +5,7 @@ import * as cors from 'cors';
 const router = Router();
 
 router.options('*', cors());
-router.use('/', cors())
+//router.use('/', cors())
 
 router.get('/emailsFiltrados', controller.getEmailsFiltrados);
 router.get('/emailsFinalizados', controller.getEmailsFinalizados);
